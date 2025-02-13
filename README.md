@@ -76,7 +76,7 @@
   - Edit `/etc/containerd/config.toml` and:
     - Set `SystemdCgroup = true` under `[containerd.runtimes.runc.options]` on all nodes
     - Disable `disable_apparmor` under `[plugins."io.containerd.grpc.v1.cri"]` on the controller node.
-    
+    - restart containerd ```bash systemctl restart containerd ```
 - **Configure Kubelet (Controller Node Only):**
   - Add the environment variable to `/usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf`:
     ```plaintext
