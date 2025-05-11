@@ -1,3 +1,6 @@
-# DevOps architecture and tutorial.
-This repository contains documentation and steps used to create DevOps plateform
-# Swap branches for different topics
+# Deletes pipeline build history
+def jobName = "ansible_call_tests"  
+def job = Jenkins.instance.getItem(jobName)  
+job.getBuilds().each { it.delete() }  
+job.nextBuildNumber = 1   
+job.save()
